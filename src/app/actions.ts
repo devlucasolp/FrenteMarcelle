@@ -49,12 +49,17 @@ export async function salvarCliente(_: EstadoForm, form: FormData): Promise<Esta
     const v = texto(k);
     return v && /^https?:\/\//.test(v) ? v : undefined;
   };
-  await salvarOverrides(slug, {
-    avisoGeral: texto("avisoGeral"),
-    logoUrl: url("logoUrl"),
-    pastaUrl: url("pastaUrl"),
-    grupoWhatsappUrl: url("grupoWhatsappUrl"),
-  });
+  try {
+    await salvarOverrides(slug, {
+      avisoGeral: texto("avisoGeral"),
+      logoUrl: url("logoUrl"),
+      pastaUrl: url("pastaUrl"),
+      grupoWhatsappUrl: url("grupoWhatsappUrl"),
+    });
+  } catch {
+    // Serverless hosts have a read-only filesystem; the pilot store only works locally.
+    return { erro: "Edição ainda indisponível nesta hospedagem. Use as variáveis de ambiente ou o Asana por enquanto." };
+  }
   revalidatePath(`/p/${slug}`);
   revalidatePath("/admin");
   return { ok: "Salvo." };
