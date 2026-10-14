@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+/* Palette taken from the approved prototype (referencias/proto0.png). */
+:root {
+  --bg: #f7f1ec;
+  --surface: #fffdfb;
+  --surface-2: #f6efea;
+  --ink: #2b2326;
+  --ink-soft: #6f6468;
+  --line: #efe4de;
+  --brand: #8c1a3c;
+  --brand-dark: #6e0f2c;
+  --rosa: #fdebef;
+  --rosa-borda: #f5cfd8;
+  --t1: #8c1a3c;
+  --t2: #4a46c8;
+  --t3: #f2385a;
+  --t4: #ea8a3a;
+  --t5: #1f5cc0;
+  --verde: #2f7a43;
+  --verde-soft: #e2f3e5;
+  --amarelo: #7a5a12;
+  --amarelo-soft: #fbefc9;
+  --azul: #2c5aa8;
+  --azul-soft: #e3ecfb;
+  --cinza: #55505a;
+  --cinza-soft: #ecebec;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-dark: var(--brand-dark);
+  --color-rosa: var(--rosa);
+  --color-rosa-borda: var(--rosa-borda);
+  --color-t1: var(--t1);
+  --color-t2: var(--t2);
+  --color-t3: var(--t3);
+  --color-t4: var(--t4);
+  --color-t5: var(--t5);
+  --color-verde: var(--verde);
+  --color-verde-soft: var(--verde-soft);
+  --color-amarelo: var(--amarelo);
+  --color-amarelo-soft: var(--amarelo-soft);
+  --color-azul: var(--azul);
+  --color-azul-soft: var(--azul-soft);
+  --color-cinza: var(--cinza);
+  --color-cinza-soft: var(--cinza-soft);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-playfair);
+}
+
+body {
+  background:
+    radial-gradient(1200px 500px at 85% -10%, #f3dcd6 0%, transparent 60%),
+    radial-gradient(900px 400px at 0% 0%, #f8ebe4 0%, transparent 55%),
+    var(--bg);
+  color: var(--ink);
+}
+
+.sem-scrollbar {
+  scrollbar-width: none;
+}
+.sem-scrollbar::-webkit-scrollbar {
+  display: none;
+}
